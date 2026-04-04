@@ -15,7 +15,7 @@ export const ProductCard = ({ product }: Props) => {
       <CardMedia
         component="img"
         height="160"
-        image={product.image}
+        image={product.thumbnail}
         alt={product.title}
         sx={{ objectFit: "contain", p: 2 }}
       />

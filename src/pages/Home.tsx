@@ -10,10 +10,11 @@ import Stack from "@mui/material/Stack";
 import CategoryFilter from "../components/CategoryFilter";
 import SortDropdown from "../components/SortDropdown";
 import Box from "@mui/material/Box";
+import type { Category } from "../types/category";
 
 export const Home = () => {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
+  const [category, setCategory] = useState<Category>("all");
   const [sort, setSort] = useState("");
 
   const { data: products = [], isLoading, isError } = useProducts();
@@ -67,7 +68,7 @@ export const Home = () => {
           sx={{ mb: 4 }}
         >
           <SearchBar value={search} onChange={setSearch} />
-          <CategoryFilter value={category} onChange={setCategory} />
+          <CategoryFilter value={category } onChange={setCategory} />
           <SortDropdown value={sort} onChange={setSort} />
         </Stack>
 

@@ -1,31 +1,25 @@
 import { MenuItem } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import type { Category } from "../types/category";
+import { CATEGORY_LIST } from "../types/category";
 
 type Props = {
-  value: string;
-  onChange: (value: string) => void;
+  value: Category;
+  onChange: (value: Category) => void;
 };
 
-export const CategoryFilter = ({ value, onChange }: Props) => {
-  const categories = [
-    "all",
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ];
-
+export const CategoryFilter = ({ value, onChange }: Props) => {  
   return (
     <TextField
       select
       label="Categories"
       value={value}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value as Category)}
       sx={{ minWidth: "250px" }}
     >
-      {categories.map((category) => (
-        <MenuItem key={category} value={category}>
-          {category}
+      {CATEGORY_LIST.map((category) => (
+        <MenuItem key={category.value} value={category.value}>
+          {category.label}
         </MenuItem>
       ))}
     </TextField>
