@@ -15,7 +15,10 @@ export const CategoryFilter = ({ value, onChange }: Props) => {
       label="Categories"
       value={value}
       onChange={(e) => onChange(e.target.value as Category)}
-      sx={{ minWidth: "250px" }}
+       sx={{
+        flex: { xs: "1 1 100%", sm: "2" },
+        minWidth: { xs: "100%", sm: "300px" },
+      }}
     >
       {CATEGORY_LIST.map((category) => (
         <MenuItem key={category.value} value={category.value}>
